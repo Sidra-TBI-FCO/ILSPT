@@ -1,4 +1,5 @@
-#Script for generating Stacked barchart for the clusters across cancer types 
+#Script for generating Stacked barchart of the immune subtypes across the cancer types 
+
 #Setup environment
 rm(list = ls())
 load("~/R.Config.Rdata")
