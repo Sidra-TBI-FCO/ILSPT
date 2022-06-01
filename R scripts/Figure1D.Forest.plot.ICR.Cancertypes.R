@@ -2,13 +2,10 @@
 
 # Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages <- c("RColorBrewer", "forestplot")
-ipak(required.packages)
+library(required.packages)
 
 # Set parameters
 
@@ -49,7 +46,7 @@ tabletext<-cbind(
   c("p-value", HR_table$p_value[c(1:n_cancers)]),
   c("HR",      HR_table$HR[c(1:n_cancers)]))
 
-pdf(file = paste0("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/Figures/after_split/Forest_plots/Forest_plot_PanCancer_cutoff_", Surv.cutoff.years,".pdf"),
+pdf(file = paste0("./Figures/after_split/Forest_plots/Forest_plot_PanCancer_cutoff_", Surv.cutoff.years,".pdf"),
     height = 7, width = 8)
 
 forestplot(mean = HR.matrix[,"HR"],
