@@ -1,3 +1,4 @@
+# Script for calculating the survival using ICR score percancer
 
 # Setup environment
 rm(list = ls())
