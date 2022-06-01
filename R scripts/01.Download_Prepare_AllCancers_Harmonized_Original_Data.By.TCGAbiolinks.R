@@ -1,13 +1,10 @@
 
 #Setting working environment 
 rm(list = ls())
-setwd("~/Dropbox (TBI-Lab)/DB-LAB/Projects - Data/02 Active Projects/SDR400151_PIFR_2020_WH_Pediatric_Cancer_TARGET")
 
 #Loading the required packages 
-source("./tools/ipak.function.R")
-required.packages = c("TCGAbiolinks")
-ibiopak(required.packages)
 library(TCGAbiolinks)
+
 #Loading the required files
 load("~/Dropbox (TBI-Lab)/DB-LAB/Projects - Data/02 Active Projects/SDR400151_PIFR_2020_WH_Pediatric_Cancer_TARGET/tools/geneInfo.July2017.RData")
 
