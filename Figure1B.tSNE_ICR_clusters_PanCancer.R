@@ -1,3 +1,4 @@
+# Script for generating tSNE plot annotated by ICR clusters
 
 #Setup environment
 rm(list = ls())
