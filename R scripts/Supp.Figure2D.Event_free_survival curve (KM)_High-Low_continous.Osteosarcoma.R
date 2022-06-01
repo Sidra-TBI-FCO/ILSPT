@@ -3,10 +3,8 @@
 rm(list = ls())
 
 # Install packages and load
-required.packages = c("survival","reshape","ggplot2","plyr","Rcpp","colorspace","texreg")
-required.bioconductor.packages = "survival"
+required.packages = c("survival","reshape","ggplot2","plyr","Rcpp","colorspace","texreg","survival")
 library(required.packages)
-library(required.bioconductor.packages)
 
 #Setting the parameters
 ICR_k = "HML_classification"                                                                                            # "HML_classification"
