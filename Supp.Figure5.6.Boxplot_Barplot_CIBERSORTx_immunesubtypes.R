@@ -56,7 +56,6 @@ dir.create(paste0("./Figures/after_split/Boxplots/CiberSortx_sub.types/Cibersort
 
 proportions = as.matrix(proportions)
 
-dev.new()
 # Plot without p-value
 i = 5 
 for (i in 1:nrow(proportions)){
@@ -156,8 +155,6 @@ color_table <- tibble(
   Color = c("#DF536B","#7ECD60","#4A93DF","#6DDFE3","#BC3DB5","#FFA500"))
 
 CIBERSORT$cluster <- factor(CIBERSORT$cluster, levels = color_table$cluster)
-
-dev.new()
 
 png(file = paste0("./Figures/after_split/CIBERSORTx/053.Combined.6.groups.Barchart_Cibersortex_proportion_immune.subtypes.png"), 
     res = 600, units = "in", width = 10, height = 7)
