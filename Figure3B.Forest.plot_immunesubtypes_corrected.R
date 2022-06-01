@@ -1,5 +1,6 @@
-
 #Script for the generating forestplot for immune subtypes pancancer
+
+# Setup environment
 rm(list = ls())
 
 load("~/R.Config.Rdata")
