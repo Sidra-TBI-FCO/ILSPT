@@ -46,5 +46,3 @@ plot = ggplot(DF, aes(x = Cancer, y =perc*100, fill = cluster)) + geom_bar(stat=
   scale_fill_manual(values= c("S1"="#DF536B","S2"="#7ECD60","S3"="#4A93DF","S4"="#6DDFE3","S5"="#BC3DB5","S6"="#FFA500"))
 plot(plot)
 dev.off()
-
-#c("CCSK" = "#BB8FCE", "NBL" = "#FFC300","OS"= "#1ABC9C","RT"="#FA8072","WT"= "#2980B9")
