@@ -1,4 +1,5 @@
-#028.Stacked barchart for the thorsson 5 clusters across cancer types 
+# Script for generating the stacked barchart for the cancer types  within the 6 immune subtypes across 
+
 #Setup environment
 rm(list = ls())
 load("~/R.Config.Rdata")
