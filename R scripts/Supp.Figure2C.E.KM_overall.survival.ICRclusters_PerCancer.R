@@ -1,13 +1,10 @@
 #Overall survival using the ggsurvplot 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages = c("survival","survminer")
-ipak(required.packages)
+library(required.packages)
 
 ## Set Parameters
 #group.of.interest = "risk_group"
@@ -57,17 +54,17 @@ png(paste0("././Figures/after_split/Kaplan_Meier_Plots/",Cancer,"_Overallsurv/03
     res=600,height=6,width=6,unit="in")
 
 
-svg(file = paste0("~/Hamad bin Khalifa University/Methylation analysis - Documents/Shimaa_PhD_Methylation_Data_Project/Figures/Survival.plots/KM.survival.across.WT.ICR.Clusters.HM.vs.L.svg"), 
+svg(file = paste0("./Figures/Survival.plots/KM.survival.across.WT.ICR.Clusters.H.M.L.svg"), 
     width = 8, height = 7,pointsize = 12)
 
 sur = ggsurvplot(fit,
                  # legend = c(0.2, 0.2),
                  break.time.by = 12, 
                  # palette = c("#DF536B","S2"="#7ECD60","S3"="#4A93DF","S4"="#6DDFE3","S5"="#BC3DB5","S6"="#FFA500"),
-                 palette = c("ICR High + Medium"="orange","ICR Low" ="blue"), 
+                 palette = c("ICR High" = "red", "ICR Medium" = "green","ICR Low" ="blue"), 
                  # conf.int = TRUE, 
                  # pval.method = TRUE,
-                 legend.labs = c("ICR High + Medium","ICR Low"),
+                 legend.labs = c("ICR High", "ICR Medium", "ICR Low"),
                  #legend = "right",
                  pval = TRUE,
                  risk.table = TRUE, 
