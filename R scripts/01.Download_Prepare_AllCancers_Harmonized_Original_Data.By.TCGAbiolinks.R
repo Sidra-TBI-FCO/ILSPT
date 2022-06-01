@@ -6,7 +6,7 @@ rm(list = ls())
 library(TCGAbiolinks)
 
 #Loading the required files
-load("~/Dropbox (TBI-Lab)/DB-LAB/Projects - Data/02 Active Projects/SDR400151_PIFR_2020_WH_Pediatric_Cancer_TARGET/tools/geneInfo.July2017.RData")
+load("~/tools/geneInfo.July2017.RData")
 
 #Setting parameters
 
@@ -44,6 +44,3 @@ duplicated(colnames(data))
 
 
 save(data,file = paste0("./Processed_Data/001_Exp_",Cancer,"_Processed_Data.rda"))
-
-
-
