@@ -2,14 +2,9 @@
 
 # Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
 
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
-
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages <- c("corrplot", "stringr")
-ipak(required.packages)                                                                                                  # Install and load required packages
+library(required.packages)                                                                                                  # Install and load required packages
 
 # Set Parameters
 Cancer = "WT"       ##  	             NBL_mycn_Amp              NBL_mycn_Namp_Intermed.Low                            # Specify the cancertypes that you want to download or process, c("...","...") or "ALL"
