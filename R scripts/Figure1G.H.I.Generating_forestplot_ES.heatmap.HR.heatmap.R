@@ -4,13 +4,10 @@
 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages <- c("stringr", "survival","RColorBrewer", "forestplot")
-ipak(required.packages)
+library(required.packages)
 
 # Set parameters
 Cancer = "Pancancer"    # NBL_mycn_Namp_Intermed.Low , NBL_mycn_Namp_High   ,   NBL_mycn_Amp ,"Pancancer
@@ -159,16 +156,11 @@ dev.off()
 #DOTTED PLOT OF CLUSTERS 
 # Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
 
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
-
 required.bioconductor.packages = c("GSVA","ComplexHeatmap", "ggplot2", "ggpubr", "circlize",
                                    "dendsort", "stringr")                                                                   
-ibiopak(required.bioconductor.packages)
+library(required.bioconductor.packages)
 
 # Set parameters
 Gene.set = "Bindea_REV1"
@@ -257,15 +249,12 @@ dev.off()
 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 
 required.packages <- c("stringr", "survival","RColorBrewer", "forestplot",
                        "ComplexHeatmap","ggplot2", "ggpubr","dendsort" ,"circlize")
-ipak(required.packages)
+library(required.packages)
 
 # Set parameters
 Cancer = "Pancancer"     #NBL_mycn_NA_High    "CCSK","OS","RT","WT", "NBL_mycn_Amp","NBL_mycn_NA_Intermed.low","NBL_mycn_Namp_High"
@@ -352,14 +341,11 @@ save(HR_table, file = paste0("./Analysis/after_split/Survival_Analysis/HR_for_He
 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages <- c("stringr", "survival","RColorBrewer", "forestplot",
                        "ComplexHeatmap","ggplot2", "ggpubr","dendsort" ,"circlize")
-ipak(required.packages)
+library(required.packages)
 # Settimg parameters
 Gene.set = "Bindea_REV1"
 Surv.cutoff.years = 10
@@ -465,7 +451,7 @@ df_pvalue_categories =  df_pvalue_categories[rownames(df_pvalue),]
 ha = HeatmapAnnotation(`Cancer` = colnames(df),
                        col = list(`Cancer` = c("Pancancer" ="brown","CCSK" = "#BB8FCE","OS"="#1ABC9C","RT"="#FA8072","WT"="#2980B9","NBL_mycn_Amp"="#FF4500","NBL_mycn_Namp_Intermed.Low"="#D78414","NBL_mycn_Namp_High"="#4b0082")
                        ),annotation_name_gp = gpar(fontsize = 22))
-dev.new()
+
 col_fun = colorRamp2(c(0,1,2),c("#800000","white","#000080"))
 col_fun2 = colorRamp2(c(0.01,0.07,0.3),c("#EBDEF0","#f0dca1","white"))  #Pink color is significant , wellow is not significant
 
