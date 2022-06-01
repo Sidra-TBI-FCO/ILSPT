@@ -1,3 +1,4 @@
+# Script for generating tSNE plot annotated by cancer types
 
 #Setup environment
 rm(list = ls())
