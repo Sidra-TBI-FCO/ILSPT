@@ -4,13 +4,10 @@
 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages <- c("stringr", "survival","RColorBrewer", "forestplot")
-ipak(required.packages)
+library(required.packages)
 
 # Set parameters
 Cancer = "PanCancer"
@@ -156,16 +153,11 @@ dev.off()
 #DOTTED PLOT OF CLUSTERS 
 # Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
 
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
-
 required.bioconductor.packages = c("GSVA","ComplexHeatmap", "ggplot2", "ggpubr", "circlize",
                                    "dendsort", "stringr")                                                                   
-ibiopak(required.bioconductor.packages)
+library(required.bioconductor.packages)
 
 # Set parameters
 Gene.set = "Selected.pathways"
@@ -253,15 +245,11 @@ dev.off()
 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
-# Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 
+# Install packages and load
 required.packages <- c("stringr", "survival","RColorBrewer", "forestplot",
                        "ComplexHeatmap","ggplot2", "ggpubr","dendsort" ,"circlize")
-ipak(required.packages)
+library(required.packages)
 
 # Set parameters
 cluster = "S6"
@@ -349,14 +337,11 @@ save(HR_table, file = paste0("./Analysis/after_split/Survival_Analysis/Thorss_cl
 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages <- c("stringr", "survival","RColorBrewer", "forestplot",
                        "ComplexHeatmap","ggplot2", "ggpubr","dendsort" ,"circlize")
-ipak(required.packages)
+library(required.packages)
 
 Gene.set = "Selected.pathways" 
 Surv.cutoff.years = 10
