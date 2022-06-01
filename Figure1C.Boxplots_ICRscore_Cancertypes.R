@@ -1,4 +1,4 @@
-#Calculation of ICR score
+# Script for calculating the ICR score
 
 # Install packages and load
 rm(list=ls())
