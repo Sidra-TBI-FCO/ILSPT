@@ -1,3 +1,5 @@
+# 2 Scripts for generating Supplementary figures 5 and 6.
+
 # Setup microenviroment
 rm(list = ls())
 load("~/R.Config.Rdata")
