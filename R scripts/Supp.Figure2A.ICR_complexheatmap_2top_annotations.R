@@ -2,13 +2,10 @@
 
 # Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages = c("ComplexHeatmap")
-ipak(required.packages)
+library(required.packages)
 
 # Set parameters
 groups = "HML.ICR.Cluster" # "k4" or "HL_k4" or "k2" or "HL_k2"
@@ -17,7 +14,7 @@ Cancer = "PanCancer"
 # load data
 load("./Analysis/after_split/Signature_Enrichment/Thorsson_clustering/030.Thorsson_samples_cancers_10000repeats_HM_clusters_km6_pediatric_only_V3.Rdata")
 load(paste0("./Processed_Data/003_PanCancer_pediatric_only_normalized_TCGAbiolinks_TP_filtered.Rdata"))
-load("~/Sidra Medicine - Research Division/TBI-LAB - General/bioinformatics tools/ICR genes/ICR_genes.RData")
+load("./bioinformatics tools/ICR genes/ICR_genes.RData")
 load(paste0("./Analysis/after_split/ICR_data_percancer_clustered_408samples/TARGET_percancer_table_cluster.Rdata"))
 
 clustering$Cancer = annotation_all$Cancer[match(rownames(clustering),annotation_all$Sample)]
