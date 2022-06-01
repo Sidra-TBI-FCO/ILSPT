@@ -2,11 +2,6 @@
 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 
 required.packages = c("stringr", "ggplot2", "ggpubr", "dplyr")
 ipak(required.packages)
@@ -17,12 +12,6 @@ Cancer = "PanCancer"
 
 # Load data
 load("./Analysis/after_split/Signature_Enrichment/Thorsson_clustering/030.Thorsson_samples_cancers_10000repeats_HM_clusters_km6_pediatric_only_V3.Rdata")
-#annotation_all$Cancer = as.character(annotation_all$Cancer)
-
-#annotation_all$Cancer[which(annotation_all$Cancer == "NBL_mycn_NA_High")] = "NBL_mycn_Namp_High"
-#annotation_all$Cancer[which(annotation_all$Cancer == "NBL_mycn_Namp_Intermed.low")] = "NBL_mycn_Namp_Intermed.Low"
-
-#save(annotation_all,file = "./Analysis/after_split/Signature_Enrichment/Thorsson_clustering/030.Thorsson_samples_cancers_10000repeats_HM_clusters_km6_pediatric_only_V3.Rdata")
 
 DF <- annotation_all %>%
   group_by(cluster, Cancer) %>%
