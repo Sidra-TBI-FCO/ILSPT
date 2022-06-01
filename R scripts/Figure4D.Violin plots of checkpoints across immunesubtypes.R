@@ -2,13 +2,10 @@
 
 # Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages = c("stringr", "ggplot2", "ggpubr")
-ipak(required.packages)
+library(required.packages)
 
 # Set parameters
 Cancer = "Pancancer"
@@ -16,7 +13,7 @@ Gene.set = "ImmuneCheckPoints"
 test = "t.test"
 cluster = c("S1","S2","S3","S4","S5","S6")
 # Load data
-Checkpoints = read.csv("~/Sidra Medicine - Research Division/TBI-LAB - General/bioinformatics tools/Checkpoint genes/checkpoint.genes.csv",stringsAsFactors = FALSE)
+Checkpoints = read.csv("./bioinformatics tools/Checkpoint genes/checkpoint.genes.csv",stringsAsFactors = FALSE)
 load(paste0("./Processed_Data/003_PanCancer_pediatric_only_normalized_TCGAbiolinks_TP_filtered.Rdata"))
 load( "./Analysis/after_split/Signature_Enrichment/Thorsson_clustering/Thorsson_samples_cancers_10000repeats_HM_clusters_km6_pediatric_only_V2.Rdata")
 #rownames(ES) = gsub("\\/", "_", rownames(ES))
