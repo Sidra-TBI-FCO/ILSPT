@@ -1,4 +1,6 @@
-#Enrichment scores HEATMAP (5 thorsson clusters)
+# Script for generating the immune subtypes heatmap
+
+
 #Setup environment
 rm(list = ls())
 load("~/R.Config.Rdata")
