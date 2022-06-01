@@ -2,13 +2,10 @@
 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.bioconductor.packages = c("GSVA","ComplexHeatmap", "gclus")                                                                   
-ibiopak(required.bioconductor.packages)
+library(required.bioconductor.packages)
 
 # Set parameters
 #cluster = "S6"
