@@ -3,18 +3,14 @@
 # Setup environment
 rm(list=ls())
 
-setwd("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET")                                                                    # Setwd to location were output files have to be saved.
-
-source("./tools/ipak.function.R")
-
 required.bioconductor.packages = c("GSVA","gclus")                                                                   
-ibiopak(required.bioconductor.packages)
+library(required.bioconductor.packages)
 
 # Set parameter
 Cancer = "PanCancer"
 Gene.set = "Bindea_REV1"  # alternative options: "Bindea_REV1" or "selected.pathways"
 # Load data and R scripts
-load(paste0("~/Sidra Medicine - Research Division/TBI-LAB - General/bioinformatics tools/GSEA list/immune.gene.lists.v4.Rdata"))
+load(paste0("~/bioinformatics tools/GSEA list/immune.gene.lists.v4.Rdata"))
 load(paste0("./Processed_Data/003_",Cancer,"_pediatric_only_normalized_TCGAbiolinks_TP_filtered.Rdata"))
 
 # Create folders 
