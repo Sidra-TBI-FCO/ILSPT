@@ -2,12 +2,10 @@
 
 # Setup environment
 rm(list = ls())
-setwd("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET")
 
 # Install packages and load
-source("./tools/ipak.function.R")
 required.packages = c("ConsensusClusterPlus","clue","heatmap3")
-ipak(required.packages)
+library(required.packages)
 
 # Set parameters
 groups = "HML.ICR.Cluster" # "k4" or "HL_k4" or "k2" or "HL_k2"
@@ -18,7 +16,7 @@ load("./Analysis/after_split/annotation_with_NBL_subgroups.Rdata")
 #annotation_all= annotation_all[which(annotation_all$Cancer %in% Cancer),]
 filtered.norm.RNAseqData = filtered.norm.RNAseqData[,which(colnames(filtered.norm.RNAseqData) %in% annotation_all$Sample)]
 
-load("~/Sidra Medicine - Research Division/TBI-LAB - General/bioinformatics tools/ICR genes/ICR_genes.RData")
+load("~/ICR genes/ICR_genes.RData")
 
 # Create directories
 dir.create("./Analysis", showWarnings = FALSE)
