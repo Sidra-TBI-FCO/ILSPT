@@ -1,12 +1,9 @@
 
 # Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
+
 required.packages <- c("corrplot", "stringr")
-ipak(required.packages)    
+library(required.packages)    
 
 # Set Parameters
 Cancer = "OS"  #NBL_mycn_Amp  #NBL_mycn_NA #NBL_mycn_Namp_Intermed.Low  #NBL_mycn_Namp_High
@@ -90,14 +87,11 @@ save(Hallmark_GSEA_cor, Hallmark_GSEA_cor_sign, file = paste0("./Analysis/after_
 ###########################################
 
 rm(list=ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 
 required.packages <- c("corrplot", "stringr","ComplexHeatmap","ggplot2")
-ipak(required.packages)                                                                                                  # Install and load required packages
+library(required.packages)                                                                                                  # Install and load required packages
 
 # Set Parameters
 CancerTYPES = "ALL"                                                                                                    # Specify download method (this information to be used when saving the file)
