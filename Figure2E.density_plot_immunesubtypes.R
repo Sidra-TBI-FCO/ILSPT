@@ -1,3 +1,4 @@
+# Script for generating the density plot of immune signatures
 
 # Setup environemnt
 rm(list = ls())
