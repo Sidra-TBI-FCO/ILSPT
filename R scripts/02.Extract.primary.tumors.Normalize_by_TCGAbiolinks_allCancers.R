@@ -1,12 +1,11 @@
 
 #Setting working environment 
 rm(list = ls())
-setwd("~/Dropbox (TBI-Lab)/DB-LAB/Projects - Data/02 Active Projects/SDR400151_PIFR_2020_WH_Pediatric_Cancer_TARGET")
 
 #Loading the required packages 
 source("./tools/ipak.function.R")
 required.packages = c("TCGAbiolinks","limma")
-ibiopak(required.packages)
+library(required.packages)
 source("./tools/TCGA-Assembler-2-master/TCGA-Assembler/Module_A.R")
 source("./tools/TCGA-Assembler-2-master/TCGA-Assembler/Module_B.R")
 TCGASampleTypeFile = paste0("./tools/TCGA-Assembler-2-master/TCGA-Assembler/SupportingFiles/TCGASampleType.txt")
@@ -15,7 +14,7 @@ TCGASampleTypeFile = paste0("./tools/TCGA-Assembler-2-master/TCGA-Assembler/Supp
 Cancer = "WT"
 
 #Loading the data 
-load("~/Dropbox (TBI-Lab)/DB-LAB/Projects - Data/02 Active Projects/SDR400151_PIFR_2020_WH_Pediatric_Cancer_TARGET/tools/geneInfo.July2017.RData")
+load("~/tools/geneInfo.July2017.RData")
 load(paste0("./Processed_Data/001_Exp_",Cancer,"_Processed_Data.rda"))
 
 
