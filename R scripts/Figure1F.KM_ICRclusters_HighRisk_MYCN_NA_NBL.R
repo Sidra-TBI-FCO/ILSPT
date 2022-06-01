@@ -2,13 +2,10 @@
 
 #Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages = c("survival","survminer")
-ipak(required.packages)
+library(required.packages)
 
 ## Set Parameters
 group.of.interest = "risk_group"
