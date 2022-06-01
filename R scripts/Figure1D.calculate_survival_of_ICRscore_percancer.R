@@ -2,14 +2,12 @@
 
 # Setup environment
 rm(list = ls())
-setwd("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/")
 
 # Install packages and load
-source("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/tools/ipak.function.R")
 required.packages = c("survival","reshape","ggplot2","plyr","Rcpp","colorspace","texreg")
 required.bioconductor.packages = "survival"
-ipak(required.packages)
-ibiopak(required.bioconductor.packages)
+library(required.packages)
+library(required.bioconductor.packages)
 
 #Setting the parameters
 ICR_k = "ICRscore"                                                                                            # "HML_classification"
@@ -17,10 +15,10 @@ Surv_cutoff_years = 10
 #Cancer = "WT"
 
 #Loading the required files  
-source("~/Sidra Medicine - Research Division/TBI-LAB - General/bioinformatics tools/R scripts/ggkm_Jessica_Pancancer.R")
+source("./bioinformatics tools/R scripts/ggkm_Pancancer.R")
 #load("./tools/ICR_genes.RData")
 
-TARGET_datasets = read.csv("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/Data/TARGET.dataset.csv", stringsAsFactors = FALSE)
+TARGET_datasets = read.csv("./Data/TARGET.dataset.csv", stringsAsFactors = FALSE)
 All_Cancers = TARGET_datasets$cancerType
 
 HR_table = data.frame(Cancer = All_Cancers, p_value = 0, HR = 0, CI_lower = 0, CI_upper = 0)
@@ -28,18 +26,18 @@ HR_table = data.frame(Cancer = All_Cancers, p_value = 0, HR = 0, CI_lower = 0, C
 i=6
 for (i in 1:length(All_Cancers)){
   Cancer = All_Cancers[i]
-  load(paste0("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/Analysis/after_split/ICR_data_",Cancer,"/TARGET_",Cancer,"_table_cluster.RData"))
+  load(paste0("./Analysis/after_split/ICR_data_",Cancer,"/TARGET_",Cancer,"_table_cluster.RData"))
   
   # Create folders
   dir.create("./Analysis",showWarnings = FALSE)                                                                 
-  dir.create(paste0("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/Analysis/Survival_Analysis"), showWarnings = FALSE)
+  dir.create(paste0("./Analysis/Survival_Analysis"), showWarnings = FALSE)
   
-  Survival_data=read.csv(paste0("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/Data/Clinical_Data/TARGET-",Cancer,"_clinical.csv"))
+  Survival_data=read.csv(paste0("./Data/Clinical_Data/TARGET-",Cancer,"_clinical.csv"))
   Survival_data$submitter_id = as.character(Survival_data$submitter_id)
   Survival_data  = Survival_data[!is.na(Survival_data$days_to_last_follow_up),]
   Survival_data$ICRscore = clustering$ICRscore[match(Survival_data$submitter_id,rownames(clustering))]
   
-  dir.create(paste0("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/Figures/after_split/Kaplan_Meier_Plots/",Cancer,"_Overallsurv_KM"), showWarnings = FALSE)
+  dir.create(paste0("./Figures/after_split/Kaplan_Meier_Plots/",Cancer,"_Overallsurv_KM"), showWarnings = FALSE)
   
   Survival_data = Survival_data[!is.na(Survival_data$ICRscore),]
   
@@ -73,4 +71,4 @@ for (i in 1:length(All_Cancers)){
   HR_table$HR[which(HR_table$Cancer == Cancer)] = HR
 }
 
-save(HR_table, file = "~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/Analysis/after_split/Survival_Analysis/040.HR_table_ICR_Score_Per_Cancer.Rdata")
+save(HR_table, file = "./Analysis/after_split/Survival_Analysis/040.HR_table_ICR_Score_Per_Cancer.Rdata")
