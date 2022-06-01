@@ -4,7 +4,7 @@
 rm(list = ls())
 
 required.packages = c("stringr", "ggplot2", "ggpubr", "dplyr")
-ipak(required.packages)
+library(required.packages)
 
 # Set parameters
 Gene.set = "thorss_list_5_clusters"
