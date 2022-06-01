@@ -3,7 +3,6 @@
 rm(list = ls())
 
 #Loading the required packages 
-source("./tools/ipak.function.R")
 required.packages = c("TCGAbiolinks","limma")
 library(required.packages)
 source("./tools/TCGA-Assembler-2-master/TCGA-Assembler/Module_A.R")
