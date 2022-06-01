@@ -1,3 +1,4 @@
+# Script for preparing the RNAseq data to upload to CIBERSORTx
 
 #Setup environment
 rm(list = ls())
