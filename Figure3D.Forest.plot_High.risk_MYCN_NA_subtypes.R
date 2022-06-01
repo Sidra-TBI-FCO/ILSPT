@@ -1,6 +1,6 @@
-
 #Script for the generating forestplot for immune subtypes within High risk mycn NA NBL
 
+# Setup environment
 rm(list = ls())
 
 load("~/R.Config.Rdata")
