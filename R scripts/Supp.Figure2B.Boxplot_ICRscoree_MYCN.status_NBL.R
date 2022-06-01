@@ -3,12 +3,10 @@
 
 #Setup environment
 rm(list = ls())
-setwd("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/")
 
 # Install packages and load
-source("~/Sidra Medicine - Research Division/TBI-LAB - Project - Pediatric Pan Cancer TARGET/tools/ipak.function.R")
 required.packages = c("stringr", "ggplot2", "ggpubr")
-ipak(required.packages)
+library(required.packages)
 
 ## Set Parameters
 ICR_classification_k = "MYCN.status"
