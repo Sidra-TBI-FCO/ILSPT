@@ -1,15 +1,12 @@
 #Script for the event free survival curve per cancer
 # Setup environment
 rm(list = ls())
-load("~/R.Config.Rdata")
-setwd(master.location)
-setwd(paste0(master.location,"/TBI-LAB - Project - Pediatric Pan Cancer TARGET"))
+
 # Install packages and load
-source(paste0(toolbox.path,"/R scripts/ipak.function.R"))
 required.packages = c("survival","reshape","ggplot2","plyr","Rcpp","colorspace","texreg")
 required.bioconductor.packages = "survival"
-ipak(required.packages)
-ibiopak(required.bioconductor.packages)
+library(required.packages)
+library(required.bioconductor.packages)
 
 #Setting the parameters
 ICR_k = "HML_classification"                                                                                            # "HML_classification"
@@ -17,7 +14,7 @@ Surv_cutoff_years = 10
 Cancer = "OS"
 
 #Loading the required files  
-source("~/Sidra Medicine - Research Division/TBI-LAB - General/bioinformatics tools/R scripts/ggkm_Jessica_Pancancer.R")
+source("./bioinformatics tools/R scripts/ggkm_Jessica_Pancancer.R")
 load(paste0("./Analysis/after_split/ICR_data_OS/TARGET_OS_table_cluster.RData"))
 clustering$HML.ICR.Cluster = gsub("ICR High" , "ICR High + Medium",clustering$HML.ICR.Cluster)
 clustering$HML.ICR.Cluster = gsub("ICR Medium" , "ICR High + Medium",clustering$HML.ICR.Cluster)
