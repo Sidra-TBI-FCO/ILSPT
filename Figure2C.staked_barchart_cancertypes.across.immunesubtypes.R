@@ -1,4 +1,4 @@
-# Script for generating the stacked barchart for the cancer types  within the 6 immune subtypes across 
+# Script for generating the stacked barchart for the cancer types  within the 6 immune subtypes 
 
 #Setup environment
 rm(list = ls())
