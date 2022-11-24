@@ -10,11 +10,11 @@ load("~/tools/geneInfo.July2017.RData")
 
 #Setting parameters
 
-Cancer1 = "TARGET-RT"
-Cancer = "RT"
+Cancer_project = "TARGET-RT"
+Cancer_type = "RT"
 
 # Creating the query 
-query <- GDCquery(project = Cancer1,
+query <- GDCquery(project = Cancer_project,
                   data.category = "Transcriptome Profiling",
                   data.type = "Gene Expression Quantification", 
                   workflow.type = "HTSeq - Counts")
@@ -24,7 +24,7 @@ GDCdownload(query, method = "client", directory = "./Data")
 
 #Preparing the data (creating the Matrix)
 GDCprepare(query, save =TRUE ,
-           save.filename = paste0("./Processed_Data/001_Exp_",Cancer,"_Processed_Data.Rdata"), 
+           save.filename = paste0("./Processed_Data/001_Exp_",Cancer_type,"_Processed_Data.Rdata"), 
            directory = "./Data",
            summarizedExperiment = FALSE)
 
@@ -43,4 +43,4 @@ dim(data)
 duplicated(colnames(data))
 
 
-save(data,file = paste0("./Processed_Data/001_Exp_",Cancer,"_Processed_Data.rda"))
+save(data,file = paste0("./Processed_Data/001_Exp_",Cancer_type,"_Processed_Data.Rdata"))
